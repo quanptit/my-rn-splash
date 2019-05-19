@@ -18,7 +18,8 @@ npm install
             <View style={{flex: 1}}>
                 <VContainerLoad loadDataAsync={this.loadDataAsync.bind(this)}
                                 isUsingInteraction={false}
-                                onReady={() => {
+                                onReady={async () => {
+                                    await CommonUtils.waitAfterInteractions();
                                     this.splashView && this.splashView.hide();
                                 }}
                                 onError={() => {
