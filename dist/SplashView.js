@@ -16,16 +16,20 @@ export class SplashView extends PureComponent {
         let appName = await RNCommonUtils.getAppName();
         this.setState({ appName: appName });
     }
-    hide(callback) {
+    hide(callback, isUsingAnim = true) {
         if (!this.state.visible)
             return;
-        Animated.timing(this._visibility, {
-            toValue: 0,
-            duration: 300,
-        }).start(() => {
+        if (isUsingAnim) {
+            Animated.timing(this._visibility, {
+                toValue: 0,
+                duration: 300,
+            }).start(() => {
+                this.setState({ visible: false });
+                callback && callback();
+            });
+        }
+        else
             this.setState({ visible: false });
-            callback && callback();
-        });
     }
     render() {
         if (this.state.visible === false)

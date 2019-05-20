@@ -10,7 +10,7 @@ export declare class SplashView extends PureComponent<Props, {
     private _visibility;
     constructor(props: any);
     componentDidMount(): Promise<void>;
-    hide(callback?: VoidFunction): void;
+    hide(callback?: VoidFunction, isUsingAnim?: boolean): void;
     render(): JSX.Element;
 }
 export {};

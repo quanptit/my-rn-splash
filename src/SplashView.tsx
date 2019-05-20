@@ -27,16 +27,19 @@ export class SplashView extends PureComponent<Props, { appName: string, visible:
         this.setState({appName: appName});
     }
 
-    hide(callback?: VoidFunction) {
+    hide(callback?: VoidFunction, isUsingAnim: boolean = true) {
         if (!this.state.visible) return;
 
-        Animated.timing(this._visibility, {
-            toValue: 0,
-            duration: 300,
-        }).start(() => {
+        if (isUsingAnim) {
+            Animated.timing(this._visibility, {
+                toValue: 0,
+                duration: 300,
+            }).start(() => {
+                this.setState({visible: false});
+                callback && callback()
+            });
+        } else
             this.setState({visible: false});
-            callback && callback()
-        });
     }
 
     render() {
