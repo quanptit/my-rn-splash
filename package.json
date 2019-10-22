@@ -1,6 +1,6 @@
 {
   "name": "my-rn-splash",
-  "version": "1.0.0",
+  "version": "1.0.0-1",
   "description": "my-rn-splash",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,10 @@
     "url": "https://github.com/quanptit/my-rn-splash.git"
   },
   "nativePackage": false,
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {},
-  "peerDependencies": {}
+  "peerDependencies": {
+    "react-native-linear-gradient": "^2.5.6"
+  }
 }
